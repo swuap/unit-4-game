@@ -2,14 +2,6 @@
 var wins = 0
 var losses = 0
 
-
-// testing that the variables are loading numbers correctly
-console.log(target);
-console.log("Bruce variable is " + bruce);
-console.log("Tyler variable is " + tyler);
-console.log("Hasan variable is " + hasan);
-console.log("Netreia variable is " + netreia);
-
 // this loads random numbers in to the variables used for the game
 function startUp () {
     gameScore = 0;
@@ -20,6 +12,15 @@ function startUp () {
     netreia = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
     document.getElementById("target").innerHTML = "You must guess: " + target;
     document.getElementById("gameScore").innerHTML = "So far you have: " + gameScore;
+    document.getElementById("wins").text = wins;
+    document.getElementById("losses").text = + losses;
+
+    // testing that the variables are loading numbers correctly (and also allows you to cheat :) )
+    console.log(target);
+    console.log("Bruce variable is " + bruce);
+    console.log("Tyler variable is " + tyler);
+    console.log("Hasan variable is " + hasan);
+    console.log("Netreia variable is " + netreia);
 };
 
 // this will reset the game once player wins or loses, and keeps score
@@ -34,7 +35,6 @@ function lose(){
     document.getElementById("losses").innerHTML = "Losses: " + losses;
     startUp();
 };
-
 
 // this adds points to the users total score based on the value of each picture
 document.getElementById("bruce").addEventListener("click", function() {
@@ -76,29 +76,16 @@ document.getElementById("hasan").addEventListener("click", function() {
     };
 });
 
-// document.getElementById("tyler").addEventListener("click", function() {
-//     gameScore = gameScore + tyler;
-//     document.getElementById("gameScore").innerHTML = gameScore;
-// });
+document.getElementById("netreia").addEventListener("click", function() {
+    gameScore = gameScore + netreia;
+    document.getElementById("gameScore").innerHTML = "So far you have: " + gameScore;
 
-// document.getElementById("hasan").addEventListener("click", function() {
-//     gameScore = gameScore + hasan;
-//     document.getElementById("gameScore").innerHTML = gameScore;
-// });
+    if (gameScore === target) {
+        win ();
+    };
 
-// document.getElementById("netreia").addEventListener("click", function() {
-//     gameScore = gameScore + netreia;
-//     document.getElementById("gameScore").innerHTML = gameScore;
-// });
+    if (gameScore > target) {
+        lose ();
+    };
+});
 
-
-
-startUp ();
-
-
-
-// function pictureClick () {
-//     gameScore = gameScore + bruce;
-//     console.log(bruce);
-//     console.log(gameScore);
-// };

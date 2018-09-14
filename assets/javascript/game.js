@@ -1,20 +1,18 @@
-var target 
-var bruce
-var tyler
+
+var gameScore = 0;
+target = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+bruce = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 
 function startUp () {
-  target = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
   document.getElementById("target").innerHTML = target;
-  bruce = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-  tyler = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-  console.log("Target is : " + target);
-  console.log("Target is : " + bruce);
-  console.log("Target is : " + tyler);
+};
 
-}
+function pictureClick () {
+    var gameScore = gameScore + bruce;
+    console.log(bruce);
+    console.log(gameScore);
+};
 
 startUp ();
-console.log("Target is : " + target);
-console.log("Target is : " + bruce);
-console.log("Target is : " + tyler);
-
+pictureClick ();
+// document.getElementById("bruce").addEventListener("click", console.log(bruce));
